@@ -1,0 +1,49 @@
+#include <dt-bindings/zmk/kscan_mock.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,display = &oled;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "KSCAN";
+        input-gpios
+            = <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 00 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 04 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 06 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 01 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 02 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 07 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 09 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 02 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            ;
+    };
+};
+
+&i2c1 {
+    status = "okay";
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        label = "SSD1306";
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        prechargep = <0x22>;
+    };
+};
