@@ -30,7 +30,7 @@
     };
 };
 
-&arduino_i2c {
+&i2c0 {
     status = "okay";
     sda-pin = <17>;
     scl-pin = <20>;
