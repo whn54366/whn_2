@@ -1,6 +1,0 @@
-if SHIELD_WHN_FF
-
-config ZMK_KEYBOARD_NAME
-    default "whn_ff"
-
-endif # SHIELD_WHN_FF

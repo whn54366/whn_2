@@ -1,0 +1,9 @@
+file_format: "1"
+id: my_keyboard_left
+name: My Keyboard Left
+type: shield
+requires: [supermini_nrf52840]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display

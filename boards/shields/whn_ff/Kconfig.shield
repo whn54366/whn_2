@@ -1,2 +1,0 @@
-config SHIELD_WHN_FF
-    def_bool $(shields_list_contains,whn_ff)

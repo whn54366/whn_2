@@ -1,0 +1,11 @@
+# 这个文件告诉ZMK构建系统要编译哪些固件
+# 对于 SuperMini NRF52840 + OLED 配置
+
+include:
+  # 左半部分（主控）
+  - board: supermini_nrf52840
+    shield: whn_ff-left
+    
+  # 设置重置固件（用于清除蓝牙配对）
+  - board: supermini_nrf52840
+    shield: settings_reset
