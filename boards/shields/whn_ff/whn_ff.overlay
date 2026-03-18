@@ -1,12 +1,18 @@
-#include <dt-bindings/zmk/kscan_mock.h>
+// This file was generated from a template. Edit it to match your keyboard.
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
+// instructions.
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+#include "whn_ff-layouts.dtsi"
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
+        zmk,physical-layout = &default_layout;
         zmk,display = &oled;
     };
 
-    kscan0: kscan {
+    kscan: kscan {
         compatible = "zmk,kscan-gpio-direct";
         label = "KSCAN";
         input-gpios

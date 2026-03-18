@@ -20,4 +20,4 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: whn_uno
+    shield: whn_ff
