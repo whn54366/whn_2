@@ -1,0 +1,57 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shield: [ whn_ff ]
+        board:
+          - nice_nano_v2
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache west modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-zmk-modules
+        with:
+          path: |
+            modules
+            tools
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/west.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+
+      - name: West init
+        run: west init -l config
+
+      - name: West update
+        run: west update
+
+      - name: West config
+        run: west config --global zephyr.base-prefer config
+
+      - name: West build
+        run: west build -s zmk/app -b ${{ matrix.board }} -- -DSHIELD=${{ matrix.shield }}
+
+      - name: Rename artifacts
+        run: |
+          mkdir -p artifacts
+          cp build/zephyr/zmk.uf2 artifacts/${{ matrix.board }}-${{ matrix.shield }}.uf2
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware
+          path: artifacts/
