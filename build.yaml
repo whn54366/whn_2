@@ -1,0 +1,11 @@
+# 这个文件告诉ZMK构建系统要编译哪些固件
+# 对于 nice_nano_v2 + OLED 配置
+
+include:
+  # 左半部分（主控）
+  - board: nice_nano_v2
+    shield: my_keyboard_left
+    
+  # 设置重置固件（用于清除蓝牙配对）
+  - board: nice_nano_v2
+    shield: settings_reset

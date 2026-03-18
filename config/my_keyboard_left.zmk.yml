@@ -1,0 +1,9 @@
+file_format: "1"
+id: my_keyboard_left
+name: My Keyboard Left
+type: shield
+requires: [nice_nano_v2]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
