@@ -1,0 +1,10 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+menu "whn_uno"
+
+config SHIELD_WHN_UNO
+	bool "whn_uno"
+	select SHIELD_WHN_UNO
+
+endmenu
