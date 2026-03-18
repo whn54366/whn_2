@@ -51,7 +51,7 @@ jobs:
           cp build/zephyr/zmk.uf2 artifacts/${{ matrix.board }}-${{ matrix.shield }}.uf2
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: artifacts/
