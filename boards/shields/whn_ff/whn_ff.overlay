@@ -38,7 +38,6 @@
 
 &i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c0_sda_pin &i2c0_scl_pin>;
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -54,21 +53,5 @@
         segment-remap;
         com-sequential;
         prechargep = <0x22>;
-    };
-};
-
-&pinctrl {
-    i2c0_sda_pin: i2c0_sda_pin {
-        pinmux = <NRF_P1(17)>;
-        bias-disable;
-        drive-open-drain;
-        input-enable;
-    };
-
-    i2c0_scl_pin: i2c0_scl_pin {
-        pinmux = <NRF_P1(20)>;
-        bias-disable;
-        drive-open-drain;
-        input-enable;
     };
 };
