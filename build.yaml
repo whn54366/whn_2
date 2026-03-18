@@ -4,7 +4,7 @@
 include:
   # 左半部分（主控）
   - board: nice_nano_v2
-    shield: my_keyboard_left
+    shield: whn_ff
     
   # 设置重置固件（用于清除蓝牙配对）
   - board: nice_nano_v2

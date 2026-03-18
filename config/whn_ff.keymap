@@ -1,0 +1,56 @@
+/*
+ * nice_nano_v2 键盘映射
+ * 左半部分 - 4行6列
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "Base";
+            bindings = <
+                // 第1行
+                &kp TAB   &kp Q &kp W &kp E &kp R &kp T
+                // 第2行
+                &kp LCTRL &kp A &kp S &kp D &kp F &kp G
+                // 第3行
+                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B
+                // 第4行（3个拇指键）
+                          &kp LGUI &mo 1 &kp SPACE
+            >;
+        };
+
+        lower_layer {
+            display-name = "Lower";
+            bindings = <
+                // 第1行 - 数字键
+                &kp ESC  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
+                // 第2行 - 蓝牙控制
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+                // 第3行
+                &trans   &trans &trans &trans &trans &trans
+                // 第4行
+                          &trans &trans &trans
+            >;
+        };
+
+        raise_layer {
+            display-name = "Raise";
+            bindings = <
+                // 第1行 - 符号
+                &kp TILDE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT
+                // 第2行 - 方向键
+                &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
+                // 第3行
+                &trans    &trans &trans &trans &trans &trans
+                // 第4行
+                          &trans &trans &trans
+            >;
+        };
+    };
+};

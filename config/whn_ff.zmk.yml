@@ -1,0 +1,9 @@
+file_format: "1"
+id: whn_ff
+name: WHN FF Keyboard
+type: shield
+requires: [nice_nano_v2]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
